@@ -1,0 +1,21 @@
+More Image Resize
+
+For n = 0.25, 1//n = 4
+            large.bmp   larger.bmp
+bi.Width    12          3
+bi.Height   12          3
+
+For n = 0.3, 1//n = 3
+            large.bmp   larger.bmp
+bi.Width    12          3
+bi.Height   12          3
+
+For n = 0.5, 1//n = 2
+            large.bmp   larger.bmp
+bi.Width    12          6
+bi.Height   12          6
+
+For n = 0.75, 1//n = 1
+            large.bmp   larger.bmp
+bi.Width    12          9
+bi.Height   12          9

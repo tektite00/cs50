@@ -1,0 +1,31 @@
+1. Open memory card file, and ensure we didn't get NULL back
+2. while open, find the beginning of the JPEG
+    a) Close old jpeg file if open
+    b) Create a new JPEG file and open it
+3. Write 512 bytes to opened  JPEG file
+4. detect end of file or memory card  (EOF) and break the loop
+
+======= JPEG PROPERTIES =======
+* Distinct Header:
+    - first byte: 0xff
+    - second byte: 0xd8
+    - third byte: 0xff
+    - last byte: 0xe01, 0xe1, 0xe2, ..., 0xef
+* Stored side-by-side on the memory card
+* Each block is 512 bytes
+
+
+fread(buffer, 512, 1, raw_file) == 1
+
+if(
+buffer[0] == 0xff && 
+buffer[1] == 0xd8 &&
+buffer[2] == 0xff &&
+(buffer[3] & 0xf0) == 0xe0)
+
+char filename[8];
+
+sprintf(filename, "%03i.jpg", 2);
+
+FILE *img = fopen(filename, "w");
+

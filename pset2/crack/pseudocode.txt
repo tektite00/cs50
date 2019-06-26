@@ -1,0 +1,8 @@
+1. Get 1. Get hash 
+  a. Check for valid arguments as input
+2. Get Salt
+3. Create empty char array for guess of size 5 + 1 for '/0' = size 6
+4. for each place in 5 digit guess password
+   loop through each uppercase, lowercase ASCII char.
+   Try out all permuations, return if found else error
+                    
