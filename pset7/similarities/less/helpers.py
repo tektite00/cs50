@@ -1,7 +1,8 @@
 def lines(a, b):
     """Return lines in both a and b"""
+    a = a.split("\n")
+    b = b.split("\n")
 
-    # TODO
     return []
 
 
