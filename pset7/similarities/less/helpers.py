@@ -23,5 +23,5 @@ def substr_tokenize(string, n):
 def substrings(a, b, n):
     """Return substrings of length n in both a and b"""
     substrings_a = set(substr_tokenize(a, n))
-    substrings_b = set(substr_tokenize(a, n))
+    substrings_b = set(substr_tokenize(b, n))
     return list(substrings_a.intersection(substrings_b))
