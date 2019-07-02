@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Sheet</h1>
+    <!--  http://getbootstrap.com/docs/4.1/components/tables/ -->
+    <table class="table" id="surveys"></table>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function(data){
+            $('#surveys').DataTable({
+                columns: [
+                    { title: "Name" },
+                    { title: "House"},
+                    { title: "Position"}
+                ]
+            });
+        });
+    </script>
+{% endblock %}

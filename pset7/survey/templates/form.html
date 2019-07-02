@@ -7,8 +7,58 @@
 
     <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
     <form action="/form" method="post">
-
-        <!-- TODO -->
+        <div class="form-group row">
+            <label for="Name" class="col-sm-2 col-form-label">Full Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="e.g. Harry Potter" name="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Select House" class="col-sm-2 col-form-label">Select House</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="house">
+                    <option disabled="" selected="" value="">House</option>
+                    <option value="Gryffindor">Gryffindor</option>
+                    <option value="Hufflepuff">Hufflepuff</option>
+                    <option value="Ravenclaw">Ravenclaw</option>
+                    <option value="Slytherin">Slytherin</option>
+                </select>
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2">Quidditch position: </legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" id="Beater" name="position" type="radio" value="Beater">
+                        <label class="form-check-label" for="Beater">
+                            Beater
+                        </label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" id="Chaser" name="position" type="radio" value="Chaser">
+                        <label class="form-check-label" for="Chaser">
+                            Chaser
+                        </label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" id="Keeper" name="position" type="radio" value="Keeper">
+                        <label class="form-check-label" for="Keeper">
+                            Keeper
+                        </label>
+                    </div>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" id="Seeker" name="position" type="radio" value="Seeker">
+                        <label class="form-check-label" for="Seeker">
+                            Seeker
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
 
         <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
         <button class="btn btn-primary" type="submit">Submit</button>
