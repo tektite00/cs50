@@ -1,4 +1,3 @@
-import cs50
 import re
 from flask import Flask, abort, redirect, render_template, request
 from html import escape
@@ -9,6 +8,8 @@ from helpers import distances, Operation
 # Web app
 app = Flask(__name__)
 
+# Reload templates when they are changed
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.after_request
 def after_request(response):

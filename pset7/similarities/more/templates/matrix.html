@@ -1,1 +1,38 @@
-<!-- TODO -->
+<!-- Score Matrix -->
+<table class="table table-sm">
+    <thead class="thead-dark">
+        <tr> {# Prints String 2 #}
+            <th></th>
+            <th></th>
+            <th></th>
+            {% for char in s2 %}
+                <th>{{char}}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            {% for i in range(s2 | length + 1) %}
+                <th>{{i}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th></th>
+            <th>0</th>
+            {% for i in matrix[0] %}
+                <td>{{i[0]}}</td>
+            {% endfor %}
+        </tr>
+        {% for i in range(s1 | length) %}
+            <tr>
+                <th>{{s1[i]}}</th>
+                <th>{{i + 1}}</th>
+                {% for j in matrix[i + 1] %}
+                    <td>{{j[0]}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}            
+    </tbody>
+</table>

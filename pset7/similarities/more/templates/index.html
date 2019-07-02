@@ -2,6 +2,18 @@
 
 {% block body %}
 
-    <!-- TODO -->
+<div class="row">
+    <div class="col">
+        <form action="/score" method="post">
+            <div class="form-group">
+                <input class="form-control" name="string1" placeholder="String1" type="text">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="string2" placeholder="String2" type="text">
+            </div>
+            <button type="submit" class="btn btn-primary">Score</button>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
