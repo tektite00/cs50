@@ -1,4 +1,4 @@
-Name, House, Position
+Name,House,Position
 Adrian Pucey,Slytherin,Chaser
 Alicia Spinnet,Gryffindor,Chaser
 Andrew Kirke,Gryffindor,Beater
@@ -39,13 +39,4 @@ Terence Higgs,Slytherin,Seeker
 Vaisey,Slytherin,Chaser
 Vincent Crabbe,Slytherin,Beater
 Warrington,Slytherin,Chaser
-Zacharias Smith,Hufflepuff,ChaserH,Ravenclaw,Chaser
-S,Hufflepuff,Keeper
-a,Gryffindor,Chaser
-as,Hufflepuff,Keeper
-aa,Gryffindor,Chaser
-sss,Gryffindor,Chaser
-asdsd,Gryffindor,Keeper
-a,Gryffindor,Chaser
-a,Gryffindor,Chaser
-aa,Gryffindor,Chaser
+Zacharias Smith,Hufflepuff,ChaserH

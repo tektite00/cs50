@@ -1,4 +1,5 @@
 import csv
+import re
 
 from flask import Flask, jsonify, redirect, render_template, request
 
@@ -33,24 +34,22 @@ def post_form():
     name = request.form.get("name")
     house = request.form.get("house")
     position = request.form.get("position")
-    if not name or len(name.strip()) == 0:
-        return render_template("error.html", message="You must specify your Full Name.")
+    if not name:
+        return render_template("error.html", message=":( You must specify your Full Name!")
+    elif len(name.strip()) == 0 or re.search(r'\d', name):
+        return render_template("error.html", message=":( Your Full Name must not contain blank or numerical values!")
     elif not house:
-        return render_template("error.html", message="You must specify your House.")
+        return render_template("error.html", message=":( You must specify your House!")
     elif not position:
-        return render_template("error.html", message="You must specify your Quidditch Position.")
+        return render_template("error.html", message=":( You must specify your Quidditch Position!")
     with open('survey.csv', 'a') as fh:
-        writer = csv.DictWriter(fh, fieldnames=["Name", "House", "Position"])
-        writer.writerow({
-            "Name":name,
-            "House":house,
-            "Position":position 
-        })
+        writer = csv.writer(fh)
+        writer.writerow((name, house, position))
     return redirect('/sheet')
 
 @app.route("/sheet", methods=["GET"])
 def get_sheet():
     with open('survey.csv', 'r') as fh:
-        reader = csv.DictReader(fh)
+        reader = csv.reader(fh)
         surveys = list(reader)
-    return render_template("sheet.html", data=jsonify(surveys))
+    return render_template("sheet.html", surveys=surveys)

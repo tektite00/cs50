@@ -4,17 +4,29 @@
     <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
     <h1 class="mb-3">Sheet</h1>
     <!--  http://getbootstrap.com/docs/4.1/components/tables/ -->
-    <table class="table" id="surveys"></table>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <table class="table" id="surveys">
+        <thead>
+            <tr>
+                {% for title in surveys[0] %}
+                    <th scope="col">{{title}}</th>
+                {% endfor %}
+            </tr>            
+        </thead>
+        <tbody>
+            {% for row in surveys[1:] %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(document).ready(function(data){
-            $('#surveys').DataTable({
-                columns: [
-                    { title: "Name" },
-                    { title: "House"},
-                    { title: "Position"}
-                ]
-            });
-        });
+        $(document).ready(function() {
+            $('#surveys').DataTable();
+        } );
     </script>
 {% endblock %}

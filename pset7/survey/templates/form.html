@@ -2,73 +2,103 @@
 
 {% block main %}
 
-    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
-    <h1 class="mb-3">Form</h1>
+<!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+<h1 class="mb-3">Form</h1>
 
-    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
-    <form action="/form" method="post">
-        <div class="form-group row">
-            <label for="Name" class="col-sm-2 col-form-label">Full Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="e.g. Harry Potter" name="name">
+<!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+<form action="/form" method="post" class="needs-validation" novalidate>
+    <div class="form-group row">
+        <label for="Name" class="col-sm-2 col-form-label">Full Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="e.g. Harry Potter" name="name" autofocus required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                You must provide your Full Name!
             </div>
         </div>
-        <div class="form-group row">
-            <label for="Select House" class="col-sm-2 col-form-label">Select House</label>
-            <div class="col-sm-10">
-                <select class="form-control" name="house">
-                    <option disabled="" selected="" value="">House</option>
-                    <option value="Gryffindor">Gryffindor</option>
-                    <option value="Hufflepuff">Hufflepuff</option>
-                    <option value="Ravenclaw">Ravenclaw</option>
-                    <option value="Slytherin">Slytherin</option>
-                </select>
+    </div>
+    <div class="form-group row">
+        <label for="Select House" class="col-sm-2 col-form-label">Select House</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="house" required>
+                <option disabled="" selected="" value="">House</option>
+                <option value="Gryffindor">Gryffindor</option>
+                <option value="Hufflepuff">Hufflepuff</option>
+                <option value="Ravenclaw">Ravenclaw</option>
+                <option value="Slytherin">Slytherin</option>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                You must specify your House name!
             </div>
         </div>
-        <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-2">Quidditch position: </legend>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" id="Beater" name="position" type="radio" value="Beater">
-                        <label class="form-check-label" for="Beater">
-                            Beater
-                        </label>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2">Quidditch position: </legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" id="Beater" name="position" type="radio" value="Beater" required>
+                    <label class="form-check-label" for="Beater">
+                        Beater
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="Chaser" name="position" type="radio" value="Chaser" required>
+                    <label class="form-check-label" for="Chaser">
+                        Chaser
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="Keeper" name="position" type="radio" value="Keeper" required>
+                    <label class="form-check-label" for="Keeper">
+                        Keeper
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="Seeker" name="position" type="radio" value="Seeker" required>
+                    <label class="form-check-label" for="Seeker">
+                        Seeker
+                    </label>
+                    <div class="valid-feedback">
+                        Looks good!
                     </div>
-                
-                    <div class="form-check">
-                        <input class="form-check-input" id="Chaser" name="position" type="radio" value="Chaser">
-                        <label class="form-check-label" for="Chaser">
-                            Chaser
-                        </label>
-                    </div>
-                
-                    <div class="form-check">
-                        <input class="form-check-input" id="Keeper" name="position" type="radio" value="Keeper">
-                        <label class="form-check-label" for="Keeper">
-                            Keeper
-                        </label>
-                    </div>
-                
-                    <div class="form-check">
-                        <input class="form-check-input" id="Seeker" name="position" type="radio" value="Seeker">
-                        <label class="form-check-label" for="Seeker">
-                            Seeker
-                        </label>
+                    <div class="invalid-feedback">
+                        You must specify your Quidditch Position!
                     </div>
                 </div>
             </div>
-        </fieldset>
+        </div>
+    </fieldset>
+    <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
 
-        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
-        <button class="btn btn-primary" type="submit">Submit</button>
-
-    </form>
-
-    <script>
-
-        /* TODO */
-
-    </script>
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 
 {% endblock %}
