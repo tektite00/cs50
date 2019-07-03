@@ -34,6 +34,7 @@ def post_form():
     name = request.form.get("name")
     house = request.form.get("house")
     position = request.form.get("position")
+    # Validate inputs
     if not name:
         return render_template("error.html", message=":( You must specify your Full Name!")
     elif len(name.strip()) == 0 or re.search(r'\d', name):
@@ -42,13 +43,16 @@ def post_form():
         return render_template("error.html", message=":( You must specify your House!")
     elif not position:
         return render_template("error.html", message=":( You must specify your Quidditch Position!")
+    # Once input is validated write it to csv file
     with open('survey.csv', 'a') as fh:
         writer = csv.writer(fh)
         writer.writerow((name, house, position))
-    return redirect('/sheet')
+    return redirect('/sheet')  # Redirect user to sheet.html
+
 
 @app.route("/sheet", methods=["GET"])
 def get_sheet():
+    # Open survey.csv file and load it
     with open('survey.csv', 'r') as fh:
         reader = csv.reader(fh)
         surveys = list(reader)
